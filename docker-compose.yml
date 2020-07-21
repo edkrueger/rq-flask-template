@@ -1,0 +1,27 @@
+version: "3.8"
+services:
+    redis:
+        image: redis
+        ports:
+            - "6379:6379"
+    app:
+        build:
+            context: ./
+            dockerfile: Dockerfile
+        environment: 
+            - PORT=8000
+            - REDIS_HOST=redis
+            - REDIS_PORT=6379
+            - DATABASE_URL=$DATABASE_URL
+        ports:
+            - "80:8000"
+    worker:
+        build:
+            context: ./
+            dockerfile: Dockerfile
+        command: rq worker --url redis://redis:6379
+        environment: 
+            - DATABASE_URL=$DATABASE_URL
+
+
+        
