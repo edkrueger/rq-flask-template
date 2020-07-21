@@ -1,11 +1,5 @@
 # redis-demo
 
-
-## Environmental Variables
-Copy `example.env` to `.env`.  
-Put your SQLAlchemy connection string into `.env` where indicated.  
-
-
 ## Dev Instructions
 Run `pipenv install --dev` to install the env.  
 Run `pipenv run pre-commit install` to initialize the git hooks.  
@@ -49,5 +43,3 @@ Clone this repo and change into it.
 Run `sudo sh setup.sh` to install and configure docker and docker-compose.  
 Exit and SSH into the instance again.  
 Run the commands in the above "Build and Run the App With Docker" with sudo.  
-
-
